@@ -15,6 +15,12 @@ public class PowerLevel : MonoBehaviour
     /// Used to generate a number of battle points that is used in combat.
     /// </summary>
     /// <returns></returns>
+
+    public float myChanceToWin = 0f;
+    public int myPowerLevel = 0;
+    public float totalPower = 0f;
+
+
     public int ReturnMyDancePowerLevel()
     {
         // let's set our player power levels, using an algorithm, the simpliest would be luck + style + rhythm
@@ -22,7 +28,7 @@ public class PowerLevel : MonoBehaviour
         int myStyle = myStats.style;
         int myRhthm = myStats.rhythm;
 
-        int myPowerLevel = myLuck + myStyle + myRhthm;
+        myPowerLevel = myLuck + myStyle + myRhthm;
 
         return myPowerLevel; // instead of returning 0 we probably want to return our current power level
     }
@@ -36,7 +42,7 @@ public class PowerLevel : MonoBehaviour
     public float ReturnChanceToWin(int myPowerLevel,int opponentPowerLevel)
     {
         // let's first calculate the total power level overall.
-        int totalPower = myPowerLevel + opponentPowerLevel;
+        totalPower = myPowerLevel + opponentPowerLevel;
 
         // Then let's then do a fraction of my power level and the overall power level.
         float myChanceToWin = myPowerLevel / totalPower * 100;
