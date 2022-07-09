@@ -12,17 +12,33 @@ public class CharacterNameGenerator : MonoBehaviour
 {
  
     [Header("Possible first names")]
-    private List<string> firstNames = new List<string>(); // a list of all possible first names for us to use.
+    private List<string> firstNames = new List<string>();// a list of all possible first names for us to use.
     [Header("Possible last names")]
     private List<string> lastNames = new List<string>(); // a list of all possible last names for us to use.
     [Header("Possible nicknames")]
     private List<string> nicknames = new List<string>(); // a list of all possible nick names for us to use.
 
-
     private void Awake()
     {
         // call the create names function
         CreateNames();
+        //firstname
+        firstNames.Add("Bacon");
+        firstNames.Add("Viet");
+        firstNames.Add("Armstrong");
+        firstNames.Add("Marine");
+
+        //lastnames
+        lastNames.Add("Sins");
+        lastNames.Add("Cheese");
+        lastNames.Add("Kong");
+        lastNames.Add("Nuts");
+
+        //nickname
+        nicknames.Add("Ashen One");
+        nicknames.Add("Godtrillia");
+        nicknames.Add("Monkey");
+        nicknames.Add("Keeper");
     }
 
     /// <summary>

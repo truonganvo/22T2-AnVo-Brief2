@@ -31,17 +31,25 @@ public class FightManager : MonoBehaviour
         // We should probably determine here who has won, and who has lost by comparing their power levels.
         // we should also do some damage or heal the appropriate characters.
         // we could also give them some XP if we want to. 
-        // so we have the character class, which means any variables,references and functions we can access.
+        if (playerOnePowerLevel > playerTwoPowerLevel)
+        {
+            BattleLog.Log("PlayerOne WIN, " + "+100XP.", teamAColour);
+        }
 
+        else if (playerTwoPowerLevel > playerOnePowerLevel)
+        {
+            BattleLog.Log("PlayerTwo WIN, " + "+100XP.", teamBColour);
+        }
+
+        // so we have the character class, which means any variables,references and functions we can access.
         // By default it will automatically be a draw.
-        string battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + " fight is a draw";
-        // Logs out the message to our console         
-        BattleLog.Log(battleMessage, drawCol);
-        BattleLog.Log("team A draw", teamAColour);
-        BattleLog.Log("team B draw", teamBColour);
-        // here we are just telling the system who has won, and who has lost; for any other result other than a draw we should probably pass in false.
-        FightCompleted(teamBCharacter, teamACharacter, true);
-        
+          string battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + " fight is a draw";
+            // Logs out the message to our console         
+            BattleLog.Log(battleMessage, drawCol);
+            BattleLog.Log("team A draw", teamAColour);
+            BattleLog.Log("team B draw", teamBColour);
+            // here we are just telling the system who has won, and who has lost; for any other result other than a draw we should probably pass in false.
+            FightCompleted(teamBCharacter, teamACharacter, true);
     }
 
 
