@@ -69,9 +69,9 @@ public class StatsSystem : MonoBehaviour
     public void ChangeHealth(float amount)
     {
         // We probably want to change our current health based on the amount coming in.
-        playerHealth = 100;
+        amount = 100;
         // currently we are just automatically removing our player...but we probably only want to do that if there is a character and their health is less than 0.
-        if(playerHealth < 0)
+        if(amount < 0)
         {
             character.RemoveFromTeam();
         }

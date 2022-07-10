@@ -33,23 +33,33 @@ public class FightManager : MonoBehaviour
         // we could also give them some XP if we want to. 
         if (playerOnePowerLevel > playerTwoPowerLevel)
         {
-            BattleLog.Log("PlayerOne WIN, " + "+100XP.", teamAColour);
+            BattleLog.Log(teamACharacter.charName.GetFullCharacterName() + " WIN!!! ", teamAColour);
+            teamACharacter.myStatsSystem.DistributePhysicalStatsOnLevelUp(playerOnePowerLevel); //If the character level up
+            teamACharacter.myLevelSystem.AddXP(playerOnePowerLevel); //Earn XP
+            teamBCharacter.myStatsSystem.ChangeHealth(playerTwoPowerLevel); //Opposite take damage
         }
 
         else if (playerTwoPowerLevel > playerOnePowerLevel)
         {
-            BattleLog.Log("PlayerTwo WIN, " + "+100XP.", teamBColour);
+            BattleLog.Log(teamBCharacter.charName.GetFullCharacterName() + " WIN!!! ", teamBColour);
+            teamBCharacter.myStatsSystem.DistributePhysicalStatsOnLevelUp(playerTwoPowerLevel);
+            teamBCharacter.myLevelSystem.AddXP(playerTwoPowerLevel);
+            teamACharacter.myStatsSystem.ChangeHealth(playerOnePowerLevel); 
+
         }
 
         // so we have the character class, which means any variables,references and functions we can access.
         // By default it will automatically be a draw.
-          string battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + " fight is a draw";
+        else
+        {
+            string battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + " fight is a draw";
             // Logs out the message to our console         
             BattleLog.Log(battleMessage, drawCol);
             BattleLog.Log("team A draw", teamAColour);
             BattleLog.Log("team B draw", teamBColour);
             // here we are just telling the system who has won, and who has lost; for any other result other than a draw we should probably pass in false.
             FightCompleted(teamBCharacter, teamACharacter, true);
+        }
     }
 
 
