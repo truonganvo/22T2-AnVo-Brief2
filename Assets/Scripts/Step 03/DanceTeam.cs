@@ -33,10 +33,15 @@ public class DanceTeam : MonoBehaviour
         List<CharacterName> allCharacterNames = new List<CharacterName>(); // a list to hold all our character name references.
 
         // so here we want to be able to loop over all of our character spawn points.
-      
-            // for each spawn point, we want to use our Instantiate(Gameobject, Vector3, Quaternion); and pass in our dancer prefab, as well as the position and rotation of the spawn point
-            // Once that does occur, we should store what was spawned into a gameobject for use later on.
-            GameObject clone = null;
+        
+        /// GetComponent<DanceTeamInit>();
+        
+        // for each spawn point, we want to use our Instantiate(Gameobject, Vector3, Quaternion); and pass in our dancer prefab, as well as the position and rotation of the spawn point
+        
+        ///Instantiate(dancerPrefab, Quaternion.identity);
+
+        // Once that does occur, we should store what was spawned into a gameobject for use later on.
+        GameObject clone = null;
 
             // After our dancer clone is spawned, we should use a getcomponent on the dancer and store a reference to the charactername class.
             CharacterName clonedCharacterName = null;
@@ -74,6 +79,7 @@ public class DanceTeam : MonoBehaviour
     public void RemoveDancerFromActive(Character dancer)
     {
         // so here we have a dancer coming in, we should probably remove them from our active dancers list.
+
     }
 
     #region No mods Required

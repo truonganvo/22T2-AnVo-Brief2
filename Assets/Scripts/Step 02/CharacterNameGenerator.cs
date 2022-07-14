@@ -22,6 +22,14 @@ public class CharacterNameGenerator : MonoBehaviour
     {
         // call the create names function
         CreateNames();
+    }
+
+    /// <summary>
+    /// Creates a list of names for all our characters to potentiall use.
+    /// </summary>
+    public void CreateNames()
+    {
+        // So here we would ideally want to be able to add some names to our first names, last names and nick names lists.
         //firstname
         firstNames.Add("Bacon");
         firstNames.Add("Viet");
@@ -39,15 +47,6 @@ public class CharacterNameGenerator : MonoBehaviour
         nicknames.Add("Godtrillia");
         nicknames.Add("Mokey");
         nicknames.Add("Goofy");
-    }
-
-    /// <summary>
-    /// Creates a list of names for all our characters to potentiall use.
-    /// </summary>
-    public void CreateNames()
-    {
-        // So here we would ideally want to be able to add some names to our first names, last names and nick names lists.
-
     }
 
     /// <summary>
@@ -77,6 +76,22 @@ public class CharacterNameGenerator : MonoBehaviour
     {
         // so here we have a list of character names coming in.
         // we should probably loop over that list of charcter names, and then for each chacter set thei first, last and nickname a random one from our lists
+        for (int i = 0; i < firstNames.Count; i++)
+        {
+            
+        }
+
+        for (int y = 0; y < lastNames.Count; y++)
+        {
+
+        }
+
+        for (int e = 0; e < nicknames.Count; e++)
+        {
+
+        }
+
+
         // if you want to get fancy you could use another function within this script to help out here.
 
     }

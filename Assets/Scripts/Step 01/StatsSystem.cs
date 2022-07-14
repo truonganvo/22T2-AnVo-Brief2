@@ -11,7 +11,7 @@ using UnityEngine;
 /// </summary>
 public class StatsSystem : MonoBehaviour
 {
-    public float playerHealth = 0;
+    public float playerHealth = 0f;
 
     /// Our physical stats that determine our dancing stats.
     public int agility = 0;
@@ -69,9 +69,9 @@ public class StatsSystem : MonoBehaviour
     public void ChangeHealth(float amount)
     {
         // We probably want to change our current health based on the amount coming in.
-        amount = 100;
+        playerHealth = amount + 100f;
         // currently we are just automatically removing our player...but we probably only want to do that if there is a character and their health is less than 0.
-        if(amount < 0)
+        if (playerHealth < 0)
         {
             character.RemoveFromTeam();
         }

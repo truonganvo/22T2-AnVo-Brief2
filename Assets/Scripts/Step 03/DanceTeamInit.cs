@@ -12,7 +12,6 @@ public class DanceTeamInit : MonoBehaviour
     public DanceTeam teamA, teamB; // A reference to our teamA and teamB DanceTeam instances.
 
     public GameObject dancerPrefab; // This is the dancer that gets spawned in for each team.
-
     /// <summary>
     /// Called to iniatlise the dance teams with some dancers :D
     /// </summary>
