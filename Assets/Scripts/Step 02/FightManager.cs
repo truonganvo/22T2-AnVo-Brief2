@@ -60,6 +60,7 @@ public class FightManager : MonoBehaviour
             // here we are just telling the system who has won, and who has lost; for any other result other than a draw we should probably pass in false.
             FightCompleted(teamBCharacter, teamACharacter, true);
         }
+        return;
     }
 
 

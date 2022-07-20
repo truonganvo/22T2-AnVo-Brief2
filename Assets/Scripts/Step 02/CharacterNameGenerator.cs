@@ -43,7 +43,7 @@ public class CharacterNameGenerator : MonoBehaviour
         lastNames.Add("Nuts");
 
         //nickname
-        nicknames.Add("Ashen One");
+        nicknames.Add("Long");
         nicknames.Add("Godtrillia");
         nicknames.Add("Mokey");
         nicknames.Add("Goofy");
@@ -78,19 +78,27 @@ public class CharacterNameGenerator : MonoBehaviour
         // we should probably loop over that list of charcter names, and then for each chacter set thei first, last and nickname a random one from our lists
         for (int i = 0; i < firstNames.Count; i++)
         {
-            
+            if (firstNames[i] == name)
+            {
+                firstNames.RemoveAt(i);
+            }
         }
 
         for (int y = 0; y < lastNames.Count; y++)
         {
-
+            if (lastNames[y] == name)
+            {
+                lastNames.RemoveAt(y);
+            }
         }
 
         for (int e = 0; e < nicknames.Count; e++)
         {
-
+            if (nicknames[e] == name)
+            {
+                nicknames.RemoveAt(e);
+            }
         }
-
 
         // if you want to get fancy you could use another function within this script to help out here.
 

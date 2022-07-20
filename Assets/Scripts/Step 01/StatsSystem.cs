@@ -59,7 +59,7 @@ public class StatsSystem : MonoBehaviour
         // luck should be based off our intelligence and be converted at a rate of 1 : 1.5f
         luck = (int)((float)(int)intelligence * intelligenceMultiplier);
         // rhythm should be based off our agility and be converted at a rate of 1 : 0.5.
-        rhythm = (int)((float)(int)agility * agilityMultiplier);
+        rhythm = (int)((float)(int)agility * agilityMultiplier); 
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ public class StatsSystem : MonoBehaviour
     public void ChangeHealth(float amount)
     {
         // We probably want to change our current health based on the amount coming in.
-        playerHealth = amount + 100f;
+        playerHealth -= amount;
         // currently we are just automatically removing our player...but we probably only want to do that if there is a character and their health is less than 0.
         if (playerHealth < 0)
         {
