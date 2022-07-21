@@ -43,9 +43,11 @@ public class BattleSystem : MonoBehaviour
         {
             // IF we get to here...then we have a team that has won...winner winner chicken dinner.
             DanceTeam winner = null; // null is the same as saying nothing...often seen as a null reference in your logs.
-
             // We need to determine a winner...but how? what is our win condition for a team winning? and set our winner to be that team
-
+            if ((teamA.activeDancers.Count < 0 && teamB.activeDancers.Count > 0) || (teamA.activeDancers.Count > 0 && teamB.activeDancers.Count < 0))
+            {
+               _ = winner != null;
+            }
             // here we are just checking we've decided which team has won, before we show the message and show some winning effects
             if (winner != null)
             {

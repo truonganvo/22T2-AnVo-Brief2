@@ -36,25 +36,25 @@ public class DanceTeam : MonoBehaviour
         // for each spawn point, we want to use our Instantiate(Gameobject, Vector3, Quaternion); and pass in our dancer prefab, as well as the position and rotation of the spawn point
        
             //Team A
-            Instantiate(dancerPrefab, new Vector3(-3f, 0f, 0f), Quaternion.identity);
-            Instantiate(dancerPrefab, new Vector3(-3f, 0f, -3f), Quaternion.identity);
-            Instantiate(dancerPrefab, new Vector3(-3f, 0f, -6f), Quaternion.identity);
+            Instantiate(dancerPrefab, new Vector3(-3f, 0f, 0f), Quaternion.LookRotation(new Vector3(90, 0, 0)));
+            Instantiate(dancerPrefab, new Vector3(-3f, 0f, -3f), Quaternion.LookRotation(new Vector3(90, 0, 0)));
+            Instantiate(dancerPrefab, new Vector3(-3f, 0f, -6f), Quaternion.LookRotation(new Vector3(90, 0, 0)));
             //Team B
-            Instantiate(dancerPrefab, new Vector3(3f, 0f, 0f), Quaternion.identity);
-            Instantiate(dancerPrefab, new Vector3(3f, 0f, -3f), Quaternion.identity);
-            Instantiate(dancerPrefab, new Vector3(3f, 0f, -6f), Quaternion.identity);
+            Instantiate(dancerPrefab, new Vector3(3f, 0f, 0f), Quaternion.LookRotation(new Vector3(270, 0, 0)));
+            Instantiate(dancerPrefab, new Vector3(3f, 0f, -3f), Quaternion.LookRotation(new Vector3(270, 0, 0)));
+            Instantiate(dancerPrefab, new Vector3(3f, 0f, -6f), Quaternion.LookRotation(new Vector3(270, 0, 0)));
 
             // Once that does occur, we should store what was spawned into a gameobject for use later on.
             GameObject clone = dancerPrefab;
 
             // After our dancer clone is spawned, we should use a getcomponent on the dancer and store a reference to the charactername class.
-            dancerPrefab = gameObject.GetComponent<GameObject>(); 
-
-            CharacterName clonedCharacterName = null; ///////////////////////////////////////
+            clone = clone.GetComponent<GameObject>(); //Error CS0029 - GameObject to CharacterName....
+            CharacterName clonedCharacterName = null; 
             // with that referecne let's add it to our list of all character names.
             allCharacterNames.Add(clonedCharacterName);
-            
+
             // here let's grab a reference to the character class that is on the cloned dancer, we probably want to use get component to grab it and store it. 
+
             Character cloneCharacter = null;
 
             if (clone != null)
@@ -62,11 +62,13 @@ public class DanceTeam : MonoBehaviour
                 // Here we are using this, this is essentially referening myself; so the clone character gets a reference of this class.
                 cloneCharacter.myTeam = this;
                 // finally let's call the AddNewDancer function and pass in our reference to our cloneCharcter
-                ///AddNewDancer();
+                AddNewDancer(cloneCharacter);
             }
 
         // we get to here our team is spawned in, yay but now.... we want to call the SetTeamCharacterNames function from our NameGenerator assuming we already have a reference to it
         // and pass in our list of all character names
+        nameGenerator.SetTeamCharacterNames(allCharacterNames);
+
     }
 
     /// <summary>

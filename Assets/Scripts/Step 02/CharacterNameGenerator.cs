@@ -76,28 +76,22 @@ public class CharacterNameGenerator : MonoBehaviour
     {
         // so here we have a list of character names coming in.
         // we should probably loop over that list of charcter names, and then for each chacter set thei first, last and nickname a random one from our lists
-        for (int i = 0; i < firstNames.Count; i++)
+        for (int i = 0; i <= firstNames.Count; i++)
         {
-            if (firstNames[i] == name)
-            {
-                firstNames.RemoveAt(i);
-            }
+            string RandomfirstNames = firstNames[Random.Range(0, 3)];
+            Debug.Log(firstNames[i]);
         }
 
-        for (int y = 0; y < lastNames.Count; y++)
+        for (int y = 0; y <= lastNames.Count; y++)
         {
-            if (lastNames[y] == name)
-            {
-                lastNames.RemoveAt(y);
-            }
+            string RandomLastNames = lastNames[Random.Range(0, 3)];
+            Debug.Log(lastNames[y]);
         }
 
-        for (int e = 0; e < nicknames.Count; e++)
+        for (int e = 0; e <= nicknames.Count; e++)
         {
-            if (nicknames[e] == name)
-            {
-                nicknames.RemoveAt(e);
-            }
+            string RandomNickNames = nicknames[Random.Range(0, 3)];
+            Debug.Log(nicknames[e]);
         }
 
         // if you want to get fancy you could use another function within this script to help out here.
