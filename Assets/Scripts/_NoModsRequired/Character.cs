@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,4 +36,8 @@ public class Character : MonoBehaviour
         }
     }
 
+    public static implicit operator Character(GameObject v)
+    {
+        throw new NotImplementedException();
+    }
 }

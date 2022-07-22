@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class CharacterName : MonoBehaviour
 {
@@ -53,5 +54,10 @@ public class CharacterName : MonoBehaviour
             //text faces the wrong way so
             nickNameText.transform.Rotate(0, 180, 0);
         }
+    }
+
+    public static implicit operator CharacterName(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

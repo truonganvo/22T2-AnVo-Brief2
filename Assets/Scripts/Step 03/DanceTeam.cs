@@ -48,14 +48,16 @@ public class DanceTeam : MonoBehaviour
             GameObject clone = dancerPrefab;
 
             // After our dancer clone is spawned, we should use a getcomponent on the dancer and store a reference to the charactername class.
-            clone = clone.GetComponent<GameObject>(); //Error CS0029 - GameObject to CharacterName....
-            CharacterName clonedCharacterName = null; 
+            CharacterName clonedCharacterName = clone;
+            clonedCharacterName = clone.GetComponent<CharacterName>();
+            clonedCharacterName = clone; //CS0029 Cannot CONVERT GAMEOBJECT(clone) into CharacterName.
             // with that referecne let's add it to our list of all character names.
             allCharacterNames.Add(clonedCharacterName);
 
-            // here let's grab a reference to the character class that is on the cloned dancer, we probably want to use get component to grab it and store it. 
-
+           // here let's grab a reference to the character class that is on the cloned dancer, we probably want to use get component to grab it and store it. 
             Character cloneCharacter = null;
+            cloneCharacter = clone.GetComponent<Character>();
+            cloneCharacter = clone; //SAME CS0029 ERROR GOES HERE, but somehow fix it self... 
 
             if (clone != null)
             {
