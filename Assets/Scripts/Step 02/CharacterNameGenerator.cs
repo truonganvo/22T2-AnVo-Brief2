@@ -79,19 +79,19 @@ public class CharacterNameGenerator : MonoBehaviour
         for (int i = 0; i <= firstNames.Count; i++)
         {
             string RandomfirstNames = firstNames[Random.Range(0, 3)];
-            Debug.Log(firstNames[i]);
+            Debug.Log(RandomfirstNames[i]);
         }
 
         for (int y = 0; y <= lastNames.Count; y++)
         {
             string RandomLastNames = lastNames[Random.Range(0, 3)];
-            Debug.Log(lastNames[y]);
+            Debug.Log(RandomLastNames[y]);
         }
 
         for (int e = 0; e <= nicknames.Count; e++)
         {
             string RandomNickNames = nicknames[Random.Range(0, 3)];
-            Debug.Log(nicknames[e]);
+            Debug.Log(RandomNickNames[e]);
         }
 
         // if you want to get fancy you could use another function within this script to help out here.
